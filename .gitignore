@@ -44,4 +44,7 @@ app-example
 
 
 #Ignore insiders AI rules
-.github\instructions\codacy.instructions.md
+.github/instructions/codacy.instructions.md
+.mcp.json
+.codacy/
+.vscode/settings.json

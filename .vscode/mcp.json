@@ -1,0 +1,123 @@
+{
+  "servers": {
+    "sentry": {
+      "type": "http",
+      "url": "https://mcp.sentry.dev/mcp"
+    },
+
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "${input:github_token}"
+      }
+    },
+
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@upstash/context7-mcp@1.0.25"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${input:context7_api_key}"
+      }
+    },
+
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "serena==latest",
+        "--context",
+        "ide-assistant"
+      ]
+    },
+
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+
+    "codacy": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@codacy/codacy-mcp@latest"
+      ],
+      "env": {
+        "CODACY_ACCOUNT_TOKEN": "${input:codacy_token}"
+      }
+    },
+
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:supabase_access_token}"
+      }
+    },
+
+    "google-maps": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-google-maps"
+      ],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": "${input:maps_api_key}"
+      }
+    },
+
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  },
+
+  "inputs": [
+    {
+      "id": "context7_api_key",
+      "type": "promptString",
+      "description": "Context7 API key",
+      "password": true
+    },
+    {
+      "id": "github_token",
+      "type": "promptString",
+      "description": "GitHub Personal Access Token",
+      "password": true
+    },
+    {
+      "id": "codacy_token",
+      "type": "promptString",
+      "description": "Codacy Account Token",
+      "password": true
+    },
+    {
+      "id": "supabase_access_token",
+      "type": "promptString",
+      "description": "Supabase Personal Access Token",
+      "password": true
+    },
+    {
+      "id": "maps_api_key",
+      "type": "promptString",
+      "description": "Google Maps API Key",
+      "password": true
+    }
+  ]
+}
