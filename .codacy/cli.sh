@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-set -e +o pipefail
+set -e -o pipefail
 
 # Set up paths first
 bin_name="codacy-cli-v2"
@@ -37,7 +37,8 @@ version_file="$CODACY_CLI_V2_TMP_FOLDER/version.yaml"
 
 get_version_from_yaml() {
     if [ -f "$version_file" ]; then
-        local version=$(grep -o 'version: *"[^"]*"' "$version_file" | cut -d'"' -f2)
+        local version
+        version=$(grep -o 'version: *"[^"]*"' "$version_file" 2>/dev/null | cut -d'"' -f2 || true)
         if [ -n "$version" ]; then
             echo "$version"
             return 0

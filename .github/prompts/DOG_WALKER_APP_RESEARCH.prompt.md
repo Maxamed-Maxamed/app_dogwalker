@@ -234,11 +234,17 @@ The Dog Walker App provides:
 - Regular audits and updates to security protocols
 - Clear terms of service outlining user responsibilities and expectations
 - Community guidelines to foster respectful interactions between users
-- Compliance with applicable laws and regulations- including data protection and animal welfare standards
-- Insurance coverage options for walkers and owners
-- Compliance with local laws and regulations 
-- Liability waivers for walkers and owners
 
+### 10.1 Legal & Compliance
+
+- Compliance with applicable laws and regulations, including data protection and animal welfare standards
+- Compliance with local laws and regulations
+- Insurance coverage options for walkers and owners
+- Liability waivers for walkers and owners
+- Terms of service agreements
+- Privacy policy adherence
+- Compliance with data protection regulations such as GDPR or CCPA
+- Regular legal reviews to ensure ongoing compliance with evolving laws and regulations
 ---
 
 ## 11. Monetization Strategy
@@ -253,12 +259,11 @@ The Dog Walker App provides:
 - Affiliate marketing with pet-related products and services
 - Revenue sharing with dog owners
 - Payment processing integration fees
-- Compliance with local laws and regulations
-- Liability waivers for walkers and owners
-- Offering insurance coverage options for walkers and owners
-- Compliance with applicable laws and regulations- including data protection and animal welfare standards
-- feature premium services for dog owners such as priority booking, extended walk durations, and personalized walker matching based on owner preferences
-- Offering subscription plans for dog walkers that provide benefits such as reduced commission rates, enhanced profile visibility, and access to exclusive walk requests
+- Premium services for dog owners such as priority booking, extended walk durations, and personalized walker matching based on owner preferences
+- Subscription plans for dog walkers that provide benefits such as reduced commission rates, enhanced profile visibility, and access to exclusive walk requests
+
+> **Note:** For legal, compliance, insurance, and liability requirements, see Section 10.1 Legal & Compliance above.
+
 ---
 
 ## 12. Future Enhancements
