@@ -47,5 +47,4 @@ app-example
 .github/instructions/codacy.instructions.md
 .mcp.json
 .codacy/
-.vscode/mcp.json
-.vscode/settings
+.vscode/settings.json

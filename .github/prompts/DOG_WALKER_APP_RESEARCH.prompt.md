@@ -135,7 +135,6 @@ The Dog Walker App provides:
 - Profile verification for walkers
 - Business partnerships
 - Push notifications
-- 
 
 ---
 

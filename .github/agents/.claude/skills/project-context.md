@@ -24,10 +24,8 @@ A React Native Expo mobile application connecting dog owners with professional d
 /utils            - Utility functions
 /types            - Type definitions
 /styles           - App styles and themes
-mcp.json          - MCP tools server configuration
-codacy.json       - Codacy analysis configuration
-.eslintrc.js      - ESLint configuration
-prettier.config.js - Prettier configuration
+eslint.config.js  - ESLint configuration
+biome.json        - Biome formatter configuration
 tsconfig.json     - TypeScript configuration
 app.json          - Expo configuration
 package.json      - Project dependencies

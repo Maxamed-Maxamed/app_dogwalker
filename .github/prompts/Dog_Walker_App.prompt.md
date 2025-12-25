@@ -36,9 +36,7 @@ Responsibilities:
 - View walk history
 - Request specific walkers
 - Receive notifications about walk status
-- communicate with walker with chat feature (optional)
--
-
+- Communicate with walker with chat feature (optional)
 
 ### Dog Walker
 Responsibilities:
@@ -50,8 +48,7 @@ Responsibilities:
 - Manage profile and availability
 - View earnings and payment history
 - Receive notifications about new walk requests
-- communicate with owner with chat feature (optional)
-- 
+- Communicate with owner with chat feature (optional)
 
 ---
 

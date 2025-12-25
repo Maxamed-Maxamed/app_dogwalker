@@ -31,10 +31,8 @@ structure:
   - /utils: Utility functions
   - /types: Type definitions
   - /styles: App styles and themes
-  - /mcp.json: MCP tools server configuration file
-  - /codacy.json: Codacy analysis configuration file
-  - .eslintrc.js: ESLint configuration file
-  - prettier.config.js: Prettier configuration file
+  - eslint.config.js: ESLint configuration file
+  - biome.json: Code formatter configuration file
   - tsconfig.json: TypeScript configuration file
   - app.json: Expo configuration file
   - package.json: Project configuration file

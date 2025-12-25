@@ -95,13 +95,13 @@ Run the following commands regularly:
 
 ```bash
 # Check for vulnerabilities
-npm audit
+pnpm audit
 
 # Update dependencies safely
-npm update
+pnpm update
 
 # Review and install updates
-npm install
+pnpm install
 ```
 
 ## Third-Party Services

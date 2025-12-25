@@ -45,10 +45,6 @@
         "@playwright/mcp@latest"
       ]
     },
-	
-	"Sentry": {
-      "url": "https://mcp.sentry.dev/mcp"
-    },
 
     "codacy": {
       "type": "stdio",

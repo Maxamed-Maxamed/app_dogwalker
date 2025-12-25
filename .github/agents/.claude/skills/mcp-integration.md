@@ -8,28 +8,42 @@ MCP enables integration with external tools and services through a standardized 
 
 ### mcp.json Structure
 
+The MCP configuration uses VS Code input references for sensitive tokens. This allows secure credential management through VS Code's input system.
+
 ```json
 {
-  "mcpServers": {
+  "servers": {
     "codacy": {
+      "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@codacy/mcp-server"],
+      "args": ["-y", "@codacy/codacy-mcp@latest"],
       "env": {
-        "CODACY_API_TOKEN": "${CODACY_API_TOKEN}",
-        "CODACY_PROJECT_ID": "${CODACY_PROJECT_ID}"
+        "CODACY_ACCOUNT_TOKEN": "${input:codacy_token}"
       }
     },
     "supabase": {
-      "command": "npx",
-      "args": ["-y", "@supabase/mcp-server"],
-      "env": {
-        "SUPABASE_URL": "${SUPABASE_URL}",
-        "SUPABASE_KEY": "${SUPABASE_KEY}"
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:supabase_access_token}"
+      }
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "${input:github_token}"
       }
     }
   }
 }
 ```
+
+### Configuration Reference
+
+- Use `${input:token_name}` for credential references (VS Code input references)
+- Input references prompt users securely without exposing credentials in config files
+- Environment variables (`${ENV_VAR}`) should only be used for non-sensitive configuration
 
 ## Codacy Integration
 
