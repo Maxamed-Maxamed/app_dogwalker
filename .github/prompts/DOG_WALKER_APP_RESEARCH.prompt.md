@@ -283,7 +283,7 @@ The Dog Walker App provides:
 - Integration with smart home devices (e.g., smart locks for easy access)
 - Seasonal and promotional events (e.g., holiday-themed walks)
 - Partnerships with local pet stores and veterinary clinics for exclusive offers and services
-- 
+
 ---
 
 ## 13. Success Metrics
