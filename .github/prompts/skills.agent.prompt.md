@@ -99,12 +99,14 @@ git_workflow:
 
 coding_standards:
   - Use TypeScript for type safety
+  - pnpm run typecheck to check types
   - Follow React Native best practices
   - Use functional components with hooks
   - Keep components small and reusable
   - Proper error handling
   - Clean code with meaningful names
-
+  - Consistent formatting with Prettier
+  - Lint code with ESLint before commits
 next_tasks:
   - Set up React Navigation
   - Create main screen structure
