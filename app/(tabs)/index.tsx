@@ -1,98 +1,111 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <ScrollView className="flex-1 bg-white dark:bg-gray-900">
+      {/* Header Section */}
+      <View className="bg-primary-500 pt-12 pb-8 px-6 rounded-b-3xl">
+        <Text className="text-white text-3xl font-bold">🐕 DogWalker</Text>
+        <Text className="text-primary-100 text-lg mt-2">
+          Find trusted walkers for your furry friend
+        </Text>
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* Main Content */}
+      <View className="px-6 py-6">
+        {/* Welcome Card */}
+        <View className="bg-secondary-50 dark:bg-gray-800 rounded-2xl p-6 mb-6 shadow-sm">
+          <View className="flex-row items-center gap-3">
+            <Text className="text-2xl">👋</Text>
+            <Text className="text-xl font-bold text-gray-900 dark:text-white">
+              Welcome!
+            </Text>
+          </View>
+          <Text className="text-gray-600 dark:text-gray-300 mt-3">
+            Your dog deserves the best walks. Let&apos; get started!
+          </Text>
+        </View>
+
+        {/* Quick Actions */}
+        <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          Quick Actions
+        </Text>
+        
+        <View className="flex-row gap-4 mb-6">
+          <Pressable className="flex-1 bg-primary-500 rounded-xl p-4 items-center active:bg-primary-600">
+            <Text className="text-3xl mb-2">🔍</Text>
+            <Text className="text-white font-semibold">Find Walker</Text>
+          </Pressable>
+          
+          <Pressable className="flex-1 bg-secondary-500 rounded-xl p-4 items-center active:bg-secondary-600">
+            <Text className="text-3xl mb-2">📅</Text>
+            <Text className="text-white font-semibold">Book Walk</Text>
+          </Pressable>
+        </View>
+
+        {/* Feature Cards */}
+        <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          Features
+        </Text>
+
+        <View className="bg-white dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-700">
+          <View className="flex-row items-center gap-3">
+            <View className="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+              <Text className="text-xl">📍</Text>
+            </View>
+            <View className="flex-1">
+              <Text className="font-semibold text-gray-900 dark:text-white">
+                Live GPS Tracking
+              </Text>
+              <Text className="text-gray-500 dark:text-gray-400 text-sm">
+                Track your dogs walk in real-time
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <View className="bg-white dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-700">
+          <View className="flex-row items-center gap-3">
+            <View className="bg-secondary-100 dark:bg-secondary-900 p-3 rounded-full">
+              <Text className="text-xl">⭐</Text>
+            </View>
+            <View className="flex-1">
+              <Text className="font-semibold text-gray-900 dark:text-white">
+                Verified Walkers
+              </Text>
+              <Text className="text-gray-500 dark:text-gray-400 text-sm">
+                Background-checked and reviewed
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <View className="bg-white dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-700">
+          <View className="flex-row items-center gap-3">
+            <View className="bg-accent-100 dark:bg-accent-900 p-3 rounded-full">
+              <Text className="text-xl">💬</Text>
+            </View>
+            <View className="flex-1">
+              <Text className="font-semibold text-gray-900 dark:text-white">
+                In-App Messaging
+              </Text>
+              <Text className="text-gray-500 dark:text-gray-400 text-sm">
+                Chat directly with your walker
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Test Link */}
+        <Link href="/modal" asChild>
+          <Pressable className="bg-gray-100 dark:bg-gray-700 rounded-xl p-4 mt-4 active:bg-gray-200 dark:active:bg-gray-600">
+            <Text className="text-center text-gray-700 dark:text-gray-200 font-medium">
+              Open Modal (Test Navigation)
+            </Text>
+          </Pressable>
+        </Link>
+      </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
