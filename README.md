@@ -36,6 +36,11 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 | **Forms** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
 | **Database/Auth** | [Supabase](https://supabase.com/) |
 | **Maps** | [Expo Maps](https://docs.expo.dev/versions/latest/sdk/maps/) |
+| **Location** | [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) |
+| **Notifications** | [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/) |
+| **Chat** | [Supabase Realtime](https://supabase.com/docs/guides/chat/realtime) |
+| **Payment** | [Stripe](https://stripe.com/) |
+| **Analytics** | [Supabase Analytics](https://supabase.com/docs/guides/analytics) |
 
 ## 📁 Project Structure
 
