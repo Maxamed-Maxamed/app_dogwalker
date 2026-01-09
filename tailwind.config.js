@@ -12,11 +12,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Dog Walker App Theme Colors
-        // Note: These CSS custom properties are safe - <alpha-value> is a Tailwind CSS placeholder
-        text: 'rgb(var(--color-text) / <alpha-value>)',
-        background: 'rgb(var(--color-background) / <alpha-value>)',
-        tint: 'rgb(var(--color-tint) / <alpha-value>)',
+        // Dog Walker App Theme Colors - Using safe static color definitions
+        text: {
+          DEFAULT: 'rgb(17 24 28)',
+          dark: 'rgb(236 237 238)'
+        },
+        background: {
+          DEFAULT: 'rgb(255 255 255)',
+          dark: 'rgb(21 23 24)'
+        },
+        tint: {
+          DEFAULT: 'rgb(10 126 164)',
+          dark: 'rgb(79 179 212)'
+        },
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
