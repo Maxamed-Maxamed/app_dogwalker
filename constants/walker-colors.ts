@@ -125,11 +125,19 @@ export const walkerStyles = {
 
 // Helper function to get walker colors for StyleSheet
 export const getWalkerColors = (colorScheme: 'light' | 'dark') => {
+  // Validate colorScheme to prevent object injection
+  if (colorScheme !== 'light' && colorScheme !== 'dark') {
+    return WalkerColors.light; // Default fallback
+  }
   return WalkerColors[colorScheme];
 };
 
 // Helper function to get walker styles for NativeWind
 export const getWalkerStyles = (colorScheme: 'light' | 'dark') => {
+  // Validate colorScheme to prevent object injection
+  if (colorScheme !== 'light' && colorScheme !== 'dark') {
+    return walkerStyles.light; // Default fallback
+  }
   return walkerStyles[colorScheme];
 };
 

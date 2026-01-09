@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         // Dog Walker App Theme Colors
+        // Note: These CSS custom properties are safe - <alpha-value> is a Tailwind CSS placeholder
         text: 'rgb(var(--color-text) / <alpha-value>)',
         background: 'rgb(var(--color-background) / <alpha-value>)',
         tint: 'rgb(var(--color-tint) / <alpha-value>)',

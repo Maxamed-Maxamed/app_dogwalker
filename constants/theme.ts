@@ -27,6 +27,15 @@ export const Colors = {
   },
 };
 
+// Helper function to safely get colors and prevent object injection
+export const getColors = (colorScheme: 'light' | 'dark') => {
+  // Validate colorScheme to prevent object injection
+  if (colorScheme !== 'light' && colorScheme !== 'dark') {
+    return Colors.light; // Default fallback
+  }
+  return Colors[colorScheme];
+};
+
 export const Fonts = Platform.select({
   ios: {
     /** iOS `UIFontDescriptorSystemDesignDefault` */

@@ -110,11 +110,19 @@ export const ownerStyles = {
 
 // Helper function to get owner colors for StyleSheet
 export const getOwnerColors = (colorScheme: 'light' | 'dark') => {
+  // Validate colorScheme to prevent object injection
+  if (colorScheme !== 'light' && colorScheme !== 'dark') {
+    return OwnerColors.light; // Default fallback
+  }
   return OwnerColors[colorScheme];
 };
 
 // Helper function to get owner styles for NativeWind
 export const getOwnerStyles = (colorScheme: 'light' | 'dark') => {
+  // Validate colorScheme to prevent object injection
+  if (colorScheme !== 'light' && colorScheme !== 'dark') {
+    return ownerStyles.light; // Default fallback
+  }
   return ownerStyles[colorScheme];
 };
 

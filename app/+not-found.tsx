@@ -1,12 +1,13 @@
-import { Link, Stack } from 'expo-router';
-import { View, Text } from 'react-native';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { getColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Link, Stack } from 'expo-router';
+import { Text, View } from 'react-native';
 
 export default function NotFoundScreen() {
   const colorScheme = useColorScheme();
-    const colors = Colors[colorScheme]; // ✅ Simple and clean
+  // Use safe helper function to prevent object injection
+  const colors = getColors(colorScheme); 
   return (  
     <>
       <Stack.Screen options={{ title: 'Oops! Not Found' }} />
