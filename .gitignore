@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# Generated NativeWind/Tailwind CSS (regenerate with: npm run build:css)
+output.css
+
 # Native
 .kotlin/
 *.orig.*

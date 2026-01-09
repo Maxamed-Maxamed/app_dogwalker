@@ -112,7 +112,7 @@ Dogwalker/
 
 | Home | Find Walker | Live Tracking |
 | ---------- | ------------ | --------------- |
-| 🏠 | 🔍 | 📍 |
+
 
 ## 🎨 Styling with NativeWind
 
@@ -144,7 +144,7 @@ The app includes custom color palettes defined in `tailwind.config.js`:
 
 This project uses [Codacy](https://www.codacy.com/) for automated code quality analysis.
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/your-project-id)](https://app.codacy.com/gh/Maxamed-Maxamed/app_dogwalker/dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1d32d9d298b3460c8f9da3210f12bdd7)](https://app.codacy.com/gh/Maxamed-Maxamed/app_dogwalker/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## 📄 Scripts
 

@@ -13,6 +13,9 @@ module.exports = {
     extend: {
       colors: {
         // Dog Walker App Theme Colors
+        text: 'rgb(var(--color-text) / <alpha-value>)',
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        tint: 'rgb(var(--color-tint) / <alpha-value>)',
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',

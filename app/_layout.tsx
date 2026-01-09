@@ -1,3 +1,4 @@
+import { CustomSplashScreen } from '@/components/splash-screen';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -15,23 +16,25 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
-  // Load custom fonts if needed
+  // Load custom fonts
   const [fontsLoaded, fontError] = useFonts({
-    // Add your custom fonts here
-    // 'SpaceMono': require('../assets/fonts/SpaceMono-Regular.ttf'),
-    
+    'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
   });
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
-      // Hide splash screen once fonts are loaded
-      SplashScreen.hideAsync();
+      // Small delay to ensure smooth transition
+      setTimeout(() => {
+        SplashScreen.hideAsync();
+      }, 500);
     }
   }, [fontsLoaded, fontError]);
 
-  // Don't render anything until fonts are loaded
+  // Render custom splash screen until fonts are ready
   if (!fontsLoaded && !fontError) {
-    return null;
+    return <CustomSplashScreen />;
   }
 
   return (
