@@ -19,16 +19,16 @@ export default function NotFoundScreen() {
         />
         
         {/* 404 Text */}
-        <Text className="text-[#11181C] text-2xl font-bold mb-8">
+        <Text className="text-2xl font-bold mb-8 text-gray-400 mt-4 text-center px-4">
           This screen doesn&apos;t exist.
         </Text>
         
-        <Text className="text-[#11181C] text-lg">
+        <Text className="text-gray-400  text-lg text-center px-4 mb-4 ">
           Looks like this dog got lost! 🐕
         </Text>
         
         {/* Go Back Link */}
-        <Link href="/"  className="text-[#11181C]">
+        <Link href="/"  className="text-gray-400 mt-4 px-4 py-2 border border-gray-400 rounded-lg">
           <Text className="text-[#11181C]">
             Go to home screen
           </Text>

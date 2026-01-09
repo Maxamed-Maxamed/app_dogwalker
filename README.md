@@ -113,7 +113,6 @@ Dogwalker/
 | Home | Find Walker | Live Tracking |
 | ---------- | ------------ | --------------- |
 
-
 ## 🎨 Styling with NativeWind
 
 This project uses **NativeWind v4** for styling with Tailwind CSS classes:
