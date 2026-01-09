@@ -20,6 +20,7 @@ const MAPPING = {
   'chevron.right': 'chevron-right',
   'person.fill': 'person',
   'pawprint.fill': 'pets',
+  'bubble.left.fill': 'chat-bubble',
 } as IconMapping;
 
 /**

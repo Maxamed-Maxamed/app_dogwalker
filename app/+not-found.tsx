@@ -11,7 +11,7 @@ export default function NotFoundScreen() {
   return (  
     <>
       <Stack.Screen options={{ title: 'Oops! Not Found' }} />
-      <View className="flex-1 items-center justify-center">
+      <View className="flex-1 items-center justify-center" style={{ backgroundColor: colors.background }}>
         {/* Dog Icon */}
         <IconSymbol 
           name="pawprint.fill" 
@@ -20,17 +20,27 @@ export default function NotFoundScreen() {
         />
         
         {/* 404 Text */}
-        <Text className="text-2xl font-bold mb-8 text-gray-400 mt-4 text-center px-4">
+        <Text 
+          className="text-2xl font-bold mb-8 mt-4 text-center px-4"
+          style={{ color: colors.muted }}
+        >
           This screen doesn&apos;t exist.
         </Text>
         
-        <Text className="text-gray-400  text-lg text-center px-4 mb-4 ">
+        <Text 
+          className="text-lg text-center px-4 mb-4"
+          style={{ color: colors.muted }}
+        >
           Looks like this dog got lost! 🐕
         </Text>
         
         {/* Go Back Link */}
-        <Link href="/"  className="text-gray-400 mt-4 px-4 py-2 border border-gray-400 rounded-lg">
-          <Text className="text-[#11181C]">
+        <Link 
+          href="/" 
+          className="mt-4 px-4 py-2 rounded-lg"
+          style={{ borderWidth: 1, borderColor: colors.border }}
+        >
+          <Text style={{ color: colors.text }}>
             Go to home screen
           </Text>
         </Link>

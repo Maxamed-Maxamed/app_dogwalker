@@ -6,13 +6,15 @@
 import { getColors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
-type ColorName = 'text' | 'background' | 'tint' | 'icon' | 'tabIconDefault' | 'tabIconSelected';
+type ColorName = 'text' | 'muted' | 'background' | 'tint' | 'icon' | 'tabIconDefault' | 'tabIconSelected' | 'border';
 
 // Safe color accessor to prevent object injection
 const getColorValue = (colors: ReturnType<typeof getColors>, colorName: ColorName): string => {
   switch (colorName) {
     case 'text':
       return colors.text;
+    case 'muted':
+      return colors.muted;
     case 'background':
       return colors.background;
     case 'tint':
@@ -23,6 +25,8 @@ const getColorValue = (colors: ReturnType<typeof getColors>, colorName: ColorNam
       return colors.tabIconDefault;
     case 'tabIconSelected':
       return colors.tabIconSelected;
+    case 'border':
+      return colors.border;
     default:
       return colors.text; // Safe fallback
   }
