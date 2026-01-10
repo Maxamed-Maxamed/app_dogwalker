@@ -8,7 +8,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 ![Supabase](https://img.shields.io/badge/Supabase-Auth%20%26%20DB-3FCF8E?style=flat-square&logo=supabase)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=flat-square&logo=typescript)
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
@@ -25,7 +25,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 - [Security](#security)
 - [License](#license)
 
-## ✨ Features
+## Features
 
 ### For Dog Owners
 
@@ -57,7 +57,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 | **Location**         | [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)                    | 19.0.8   |
 | **Language**         | [TypeScript](https://www.typescriptlang.org/)                                           | 5.9.2    |
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 Dogwalker/
@@ -146,7 +146,7 @@ Dogwalker/
 └── tsconfig.json               # TypeScript configuration
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -197,7 +197,7 @@ Dogwalker/
    - Press `w` for web browser
    - Scan QR code with [Expo Go](https://expo.dev/go) app
 
-## 🔐 Environment Variables
+## Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
 
@@ -215,7 +215,7 @@ EXPO_PUBLIC_GOOGLE_MAPS_API_KEY=your-google-maps-key
 
 > **Note:** All public environment variables must be prefixed with `EXPO_PUBLIC_` to be accessible in the app.
 
-## 🔄 Development Workflow
+## Development Workflow
 
 ### Daily Development
 
@@ -251,7 +251,7 @@ pnpm build:css
 
 > **Note:** The `prestart` script in `package.json` automatically runs `build:css` before `pnpm start`. Run manually only if you need to rebuild CSS without restarting the dev server.
 
-## 🎨 Styling with NativeWind
+## Styling with NativeWind
 
 This project uses **NativeWind v4** for styling with Tailwind CSS classes:
 
@@ -287,7 +287,7 @@ The app includes custom color palettes defined in `tailwind.config.js`:
 - **Owner Theme** (`constants/owner-colors.ts`): Blue/Teal palette
 - **Walker Theme** (`constants/walker-colors.ts`): Green/Orange palette
 
-## 🧪 Code Quality
+## Code Quality
 
 This project uses multiple tools for automated code quality and security analysis:
 
@@ -338,7 +338,7 @@ qlty metrics
 
 > **Security Note:** The install commands above pipe remote scripts directly to a shell. Before running, review the installer at [qlty.sh](https://qlty.sh). For CI/CD pipelines, prefer pinned release URLs, checksum verification, or package managers for reproducible and auditable installs.
 
-## 🤖 AI Development Tools
+## AI Development Tools
 
 This project includes AI-assisted development configurations:
 
@@ -367,7 +367,7 @@ Located in `.github/spec/`:
 
 VS Code MCP configuration in `.vscode/mcp.json` for enhanced AI tooling integration.
 
-## 📄 Scripts
+## Scripts
 
 | Command              | Description                   |
 | -------------------- | ----------------------------- |
@@ -379,7 +379,7 @@ VS Code MCP configuration in `.vscode/mcp.json` for enhanced AI tooling integrat
 | `pnpm build:css`     | Build Tailwind CSS            |
 | `pnpm reset-project` | Reset to fresh project state  |
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -418,7 +418,7 @@ emulator -list-avds
 emulator -avd <avd_name>
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating.
 
@@ -441,7 +441,7 @@ Contributions are welcome! Please read our [Code of Conduct](CODE_OF_CONDUCT.md)
 - Add proper error handling
 - Test on both iOS and Android
 
-## 🔐 Security
+## Security
 
 For information about reporting security vulnerabilities, please see our [Security Policy](SECURITY.md).
 
@@ -453,11 +453,11 @@ This project uses automated security scanning with:
 - **Gitleaks** - Credential and API key scanning
 - **OSV-Scanner** - Open-Source Vulnerability scanning
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📚 Documentation
+## Documentation
 
 | Document                              | Description                        |
 | ------------------------------------- | ---------------------------------- |
@@ -465,7 +465,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | [Security Policy](SECURITY.md)        | How to report vulnerabilities      |
 | [License](LICENSE)                    | MIT License terms                  |
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Expo](https://expo.dev) for the amazing React Native framework
 - [NativeWind](https://www.nativewind.dev/) for bringing Tailwind CSS to React Native
