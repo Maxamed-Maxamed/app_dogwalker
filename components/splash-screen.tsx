@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
-import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { Image } from "expo-image";
+import React, { useEffect } from "react";
+import { Text, View } from "react-native";
 import Animated, {
   SharedValue,
   useAnimatedStyle,
@@ -8,8 +8,8 @@ import Animated, {
   withDelay,
   withRepeat,
   withSequence,
-  withTiming
-} from 'react-native-reanimated';
+  withTiming,
+} from "react-native-reanimated";
 
 export function CustomSplashScreen() {
   const dot1 = useSharedValue(0.3);
@@ -23,11 +23,11 @@ export function CustomSplashScreen() {
         withRepeat(
           withSequence(
             withTiming(1, { duration: 500 }),
-            withTiming(0.3, { duration: 500 })
+            withTiming(0.3, { duration: 500 }),
           ),
           -1,
-          true
-        )
+          true,
+        ),
       );
     };
 
@@ -45,16 +45,14 @@ export function CustomSplashScreen() {
       {/* White Circle Logo Container */}
       <View className="bg-white rounded-full p-8 shadow-xl mb-6">
         <Image
-          source={require('@/assets/images/dog-logo.png')}
+          source={require("@/assets/images/dog-logo.png")}
           style={{ width: 80, height: 80 }}
           contentFit="contain"
         />
       </View>
 
       {/* App Name */}
-      <Text className="text-white text-4xl mb-2 font-bold">
-        DogWalker
-      </Text>
+      <Text className="text-white text-4xl mb-2 font-bold">DogWalker</Text>
 
       {/* Subtitle */}
       <Text className="text-white/80 text-lg mb-10">
@@ -63,9 +61,18 @@ export function CustomSplashScreen() {
 
       {/* Animated Dots */}
       <View className="flex-row gap-x-2">
-        <Animated.View style={dot1Style} className="w-2.5 h-2.5 bg-white rounded-full" />
-        <Animated.View style={dot2Style} className="w-2.5 h-2.5 bg-white rounded-full" />
-        <Animated.View style={dot3Style} className="w-2.5 h-2.5 bg-white rounded-full" />
+        <Animated.View
+          style={dot1Style}
+          className="w-2.5 h-2.5 bg-white rounded-full"
+        />
+        <Animated.View
+          style={dot2Style}
+          className="w-2.5 h-2.5 bg-white rounded-full"
+        />
+        <Animated.View
+          style={dot3Style}
+          className="w-2.5 h-2.5 bg-white rounded-full"
+        />
       </View>
     </View>
   );

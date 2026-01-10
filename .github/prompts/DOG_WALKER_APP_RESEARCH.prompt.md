@@ -3,7 +3,7 @@
 ## 1. Introduction
 
 The Dog Walker App is a dual-role mobile application that connects dog owners with trusted dog walkers.  
-The app is designed to simplify dog walking services by offering real-time tracking, scheduling, communication, and payments. 
+The app is designed to simplify dog walking services by offering real-time tracking, scheduling, communication, and payments.
 
 The app's primary goal is to bridge the gap between dog owners and dog walkers, making dog walking more accessible and convenient for both parties.
 
@@ -12,6 +12,7 @@ The app's primary goal is to bridge the gap between dog owners and dog walkers, 
 ## 2. Problem Statement
 
 ### Dog Owners Face:
+
 - Difficulty finding reliable walkers
 - Lack of real-time visibility during walks
 - Poor communication
@@ -21,6 +22,7 @@ The app's primary goal is to bridge the gap between dog owners and dog walkers, 
 - Scheduling conflicts with other commitments
 
 ### Dog Walkers Face:
+
 - Inconsistent job availability
 - Manual coordination with owners
 - Lack of structured walk tracking
@@ -28,12 +30,12 @@ The app's primary goal is to bridge the gap between dog owners and dog walkers, 
 - Difficulty building a client base
 - Lack of transparency
 
-
 ---
 
 ## 3. Solution Overview
 
 The Dog Walker App provides:
+
 - Role-based dashboards
 - Real-time walk tracking
 - Secure communication
@@ -44,12 +46,12 @@ The Dog Walker App provides:
 - Emergency alerts
 - Business partnerships
 
-
 ---
 
 ## 4. Target Users
 
 ### Primary Users
+
 - Busy professionals
 - Elderly dog owners
 - Dog walkers (freelancers or professionals)
@@ -59,21 +61,22 @@ The Dog Walker App provides:
 - Pet parents with irregular schedules or special needs
 
 ### Secondary Users
+
 - Pet care agencies
 - Dog walking businesses
 - Veterinarians recommending walking services
 - Dog owners looking for reliable walkers
 - Dog walkers looking for new clients
 - Pet care service aggregators
-- Community groups focused on pet care-related activities 
+- Community groups focused on pet care-related activities
 - Local pet stores promoting dog walking services
-
 
 ---
 
 ## 5. User Roles & Capabilities
 
 ### Dog Owner
+
 - Create profile
 - Add multiple dogs
 - Request walks
@@ -89,6 +92,7 @@ The Dog Walker App provides:
 - Receive notifications for walk status updates and returns to owner
 
 ### Dog Walker
+
 - Create walker profile
 - Set availability
 - View nearby walk requests
@@ -111,6 +115,7 @@ The Dog Walker App provides:
 ## 6. Core Features
 
 ### MVP Features
+
 - User authentication
 - Role selection (Owner / Walker)
 - Walk request system
@@ -126,6 +131,7 @@ The Dog Walker App provides:
 - Walk scheduling
 
 ### Advanced Features
+
 - GPS live tracking
 - In-app chat
 - Payment integration
@@ -141,6 +147,7 @@ The Dog Walker App provides:
 ## 7. User Flow
 
 ### Owner Flow
+
 1. Login
 2. Add dog
 3. Request walk
@@ -152,8 +159,8 @@ The Dog Walker App provides:
 9. Schedule recurring walks
 10. Receive notifications for walk status updates and walker returns
 
-
 ### Walker Flow
+
 1. Login
 2. Set availability
 3. View walk requests
@@ -168,13 +175,14 @@ The Dog Walker App provides:
 12. View ratings and reviews from dog owners to build credibility
 13. Manage walk schedules and availability calendar
 14. Set preferred walking routes and durations
-15. View owner profiles and dog details 
+15. View owner profiles and dog details
 
 ---
 
 ## 8. Screens Overview
 
 ### Owner Screens
+
 - Owner Home Dashboard
 - Dog Management Screen
 - Walk Request Screen
@@ -187,6 +195,7 @@ The Dog Walker App provides:
 ---
 
 ### Walker Screens
+
 - Walker Home Dashboard
 - Walk Requests Screen
 - Active Walk Screen
@@ -198,18 +207,19 @@ The Dog Walker App provides:
 - Walk Scheduling Screen
 - Preferred Routes Screen
 
-
 ---
 
 ## 9. Technical Architecture
 
 ### Frontend
+
 - React Native
 - React Navigation
 - Context API / Redux (optional)
 - Separate style files
 
 ### Backend (Suggested)
+
 - Firebase / Supabase / Node.js API
 - Authentication
 - Realtime database
@@ -244,6 +254,7 @@ The Dog Walker App provides:
 - Privacy policy adherence
 - Compliance with data protection regulations such as GDPR or CCPA
 - Regular legal reviews to ensure ongoing compliance with evolving laws and regulations
+
 ---
 
 ## 11. Monetization Strategy
@@ -312,4 +323,5 @@ The Dog Walker App provides:
 The Dog Walker App bridges trust, convenience, and transparency between dog owners and walkers.  
 Its dual-role architecture makes it scalable, flexible, and ideal for both individuals and businesses.
 By focusing on core features and user experience, the app aims to become the go-to platform for dog walking services.
+
 ---

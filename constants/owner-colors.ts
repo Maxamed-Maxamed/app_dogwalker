@@ -4,25 +4,25 @@
  */
 
 // Owner color values
-const ownerTintColorLight = '#0a7ea4';
-const ownerTintColorDark = '#4FB3D4';
+const ownerTintColorLight = "#0a7ea4";
+const ownerTintColorDark = "#4FB3D4";
 
 // Owner Colors Object (for StyleSheet usage)
 export const OwnerColors = {
   light: {
-    text: '#11181C',
-    background: '#ffffff',
+    text: "#11181C",
+    background: "#ffffff",
     tint: ownerTintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    icon: "#687076",
+    tabIconDefault: "#687076",
     tabIconSelected: ownerTintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: "#ECEDEE",
+    background: "#151718",
     tint: ownerTintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
+    icon: "#9BA1A6",
+    tabIconDefault: "#9BA1A6",
     tabIconSelected: ownerTintColorDark,
   },
 };
@@ -38,23 +38,23 @@ export const ownerTheme = {
       },
       // Text colors
       text: {
-        light: '#11181C',
-        dark: '#ECEDEE',
+        light: "#11181C",
+        dark: "#ECEDEE",
       },
       // Background colors
       background: {
-        light: '#ffffff',
-        dark: '#151718',
+        light: "#ffffff",
+        dark: "#151718",
       },
       // Icon colors
       icon: {
-        light: '#687076',
-        dark: '#9BA1A6',
+        light: "#687076",
+        dark: "#9BA1A6",
       },
       // Tab icon colors
       tabIconDefault: {
-        light: '#687076',
-        dark: '#9BA1A6',
+        light: "#687076",
+        dark: "#9BA1A6",
       },
       tabIconSelected: {
         light: ownerTintColorLight,
@@ -68,53 +68,53 @@ export const ownerTheme = {
 export const ownerStyles = {
   light: {
     // Text
-    text: 'text-[#11181C]',
-    textMuted: 'text-[#687076]',
-    
+    text: "text-[#11181C]",
+    textMuted: "text-[#687076]",
+
     // Background
-    background: 'bg-white',
-    
+    background: "bg-white",
+
     // Tint/Primary
-    tint: 'text-[#0a7ea4]',
-    tintBg: 'bg-[#0a7ea4]',
-    
+    tint: "text-[#0a7ea4]",
+    tintBg: "bg-[#0a7ea4]",
+
     // Icon
-    icon: 'text-[#687076]',
-    iconSelected: 'text-[#0a7ea4]',
-    
+    icon: "text-[#687076]",
+    iconSelected: "text-[#0a7ea4]",
+
     // Border
-    border: 'border-[#687076]',
-    borderTint: 'border-[#0a7ea4]',
+    border: "border-[#687076]",
+    borderTint: "border-[#0a7ea4]",
   },
   dark: {
     // Text
-    text: 'text-[#ECEDEE]',
-    textMuted: 'text-[#9BA1A6]',
-    
+    text: "text-[#ECEDEE]",
+    textMuted: "text-[#9BA1A6]",
+
     // Background
-    background: 'bg-[#151718]',
-    
+    background: "bg-[#151718]",
+
     // Tint/Primary
-    tint: 'text-[#4FB3D4]',
-    tintBg: 'bg-[#4FB3D4]',
-    
+    tint: "text-[#4FB3D4]",
+    tintBg: "bg-[#4FB3D4]",
+
     // Icon
-    icon: 'text-[#9BA1A6]',
-    iconSelected: 'text-[#4FB3D4]',
-    
+    icon: "text-[#9BA1A6]",
+    iconSelected: "text-[#4FB3D4]",
+
     // Border
-    border: 'border-[#9BA1A6]',
-    borderTint: 'border-[#4FB3D4]',
+    border: "border-[#9BA1A6]",
+    borderTint: "border-[#4FB3D4]",
   },
 };
 
 // Helper function to get owner colors for StyleSheet
-export const getOwnerColors = (colorScheme: 'light' | 'dark') => {
+export const getOwnerColors = (colorScheme: "light" | "dark") => {
   // Use explicit property access instead of bracket notation to prevent injection
   switch (colorScheme) {
-    case 'light':
+    case "light":
       return OwnerColors.light;
-    case 'dark':
+    case "dark":
       return OwnerColors.dark;
     default:
       return OwnerColors.light; // Safe fallback
@@ -122,12 +122,12 @@ export const getOwnerColors = (colorScheme: 'light' | 'dark') => {
 };
 
 // Helper function to get owner styles for NativeWind
-export const getOwnerStyles = (colorScheme: 'light' | 'dark') => {
+export const getOwnerStyles = (colorScheme: "light" | "dark") => {
   // Use explicit property access instead of bracket notation to prevent injection
   switch (colorScheme) {
-    case 'light':
+    case "light":
       return ownerStyles.light;
-    case 'dark':
+    case "dark":
       return ownerStyles.dark;
     default:
       return ownerStyles.light; // Safe fallback

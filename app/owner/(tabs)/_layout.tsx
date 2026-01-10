@@ -1,14 +1,14 @@
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { getColors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { HapticTab } from "@/components/haptic-tab";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { getColors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { Tabs } from "expo-router";
+import React from "react";
+import { Platform } from "react-native";
 
 export default function OwnerTabLayout() {
   const colorScheme = useColorScheme();
-  const colors = getColors(colorScheme ?? 'light');
+  const colors = getColors(colorScheme ?? "light");
 
   return (
     <Tabs
@@ -21,18 +21,20 @@ export default function OwnerTabLayout() {
         tabBarStyle: Platform.select({
           ios: {
             // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
+            position: "absolute",
           },
           default: {},
         }),
-      }}>
-      
+      }}
+    >
       {/* Home Tab - Browse & Book Walkers */}
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="house.fill" color={color} />
+          ),
         }}
       />
 
@@ -40,8 +42,10 @@ export default function OwnerTabLayout() {
       <Tabs.Screen
         name="walks"
         options={{
-          title: 'Walks',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="pawprint.fill" color={color} />,
+          title: "Walks",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="pawprint.fill" color={color} />
+          ),
         }}
       />
 
@@ -49,8 +53,10 @@ export default function OwnerTabLayout() {
       <Tabs.Screen
         name="messages"
         options={{
-          title: 'Messages',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="bubble.left.fill" color={color} />,
+          title: "Messages",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="bubble.left.fill" color={color} />
+          ),
         }}
       />
 
@@ -58,8 +64,10 @@ export default function OwnerTabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+          title: "Profile",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="person.fill" color={color} />
+          ),
         }}
       />
     </Tabs>

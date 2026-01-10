@@ -13,7 +13,7 @@ A React Native Expo mobile application connecting dog owners with professional d
 
 ## Project Structure
 
-``` bash
+```bash
 /app              - Main application screens and routes
 /components       - Reusable UI components
 /constants        - App constants and configuration

@@ -75,12 +75,7 @@ Codacy analyzes code for:
       "exclude_paths": ["__tests__/**"]
     }
   },
-  "exclude_paths": [
-    "node_modules/**",
-    "coverage/**",
-    "*.test.ts",
-    "*.test.tsx"
-  ]
+  "exclude_paths": ["node_modules/**", "coverage/**", "*.test.ts", "*.test.tsx"]
 }
 ```
 
@@ -98,44 +93,47 @@ Codacy analyzes code for:
 ```javascript
 module.exports = {
   extends: [
-    'expo',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+    "expo",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 2021,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+  plugins: ["@typescript-eslint", "react", "react-hooks"],
   rules: {
     // TypeScript
-    '@typescript-eslint/no-unused-vars': ['error', { 
-      argsIgnorePattern: '^_',
-      varsIgnorePattern: '^_',
-    }],
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'error',
-    
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+      },
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+
     // React
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
     // General
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
-    'prefer-const': 'error',
-    'no-var': 'error',
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "prefer-const": "error",
+    "no-var": "error",
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };
@@ -161,14 +159,14 @@ pnpm lint components/WalkCard.tsx
 ```javascript
 module.exports = {
   semi: true,
-  trailingComma: 'es5',
+  trailingComma: "es5",
   singleQuote: true,
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
-  arrowParens: 'always',
+  arrowParens: "always",
   bracketSpacing: true,
-  endOfLine: 'lf',
+  endOfLine: "lf",
 };
 ```
 
@@ -214,9 +212,7 @@ pnpm test --bail --findRelatedTests
       "prettier --write",
       "jest --bail --findRelatedTests"
     ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
+    "*.{json,md}": ["prettier --write"]
   }
 }
 ```
@@ -238,35 +234,35 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          
+          node-version: "18"
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
-          
+
       - name: Install dependencies
         run: pnpm install
-        
+
       - name: Type check
         run: pnpm tsc --noEmit
-        
+
       - name: Lint
         run: pnpm lint
-        
+
       - name: Format check
         run: pnpm format --check
-        
+
       - name: Run tests
         run: pnpm test --coverage
-        
+
       - name: Upload coverage to Codacy
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
@@ -280,7 +276,7 @@ jobs:
 
 ```typescript
 // utils/supabase.ts
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
@@ -300,11 +296,14 @@ export type Database = {
           id: string;
           email: string;
           name: string;
-          role: 'owner' | 'walker';
+          role: "owner" | "walker";
           created_at: string;
         };
-        Insert: Omit<Database['public']['Tables']['users']['Row'], 'id' | 'created_at'>;
-        Update: Partial<Database['public']['Tables']['users']['Insert']>;
+        Insert: Omit<
+          Database["public"]["Tables"]["users"]["Row"],
+          "id" | "created_at"
+        >;
+        Update: Partial<Database["public"]["Tables"]["users"]["Insert"]>;
       };
       walks: {
         Row: {
@@ -314,7 +313,7 @@ export type Database = {
           owner_id: string;
           scheduled_date: string;
           duration: number;
-          status: 'scheduled' | 'in_progress' | 'completed' | 'cancelled';
+          status: "scheduled" | "in_progress" | "completed" | "cancelled";
           price: number;
           created_at: string;
         };
@@ -325,9 +324,9 @@ export type Database = {
 
 // Usage
 const { data, error } = await supabase
-  .from('walks')
-  .select('*')
-  .eq('owner_id', userId);
+  .from("walks")
+  .select("*")
+  .eq("owner_id", userId);
 ```
 
 ## Code Quality Metrics

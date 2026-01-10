@@ -1,5 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text, View } from "react-native";
 
 export default function Schedule() {
-  return <View><Text>Schedule</Text></View>;
+  return (
+    <View>
+      <Text>Schedule</Text>
+    </View>
+  );
 }

@@ -1,5 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text, View } from "react-native";
 
 export default function Experience() {
-  return <View><Text>Experience</Text></View>;
+  return (
+    <View>
+      <Text>Experience</Text>
+    </View>
+  );
 }

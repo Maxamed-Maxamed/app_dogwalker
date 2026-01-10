@@ -16,9 +16,7 @@
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "@upstash/context7-mcp@1.0.25"
-      ],
+      "args": ["@upstash/context7-mcp@1.0.25"],
       "env": {
         "CONTEXT7_API_KEY": "${input:context7_api_key}"
       }
@@ -41,18 +39,13 @@
     "playwright": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "@playwright/mcp@latest"
-      ]
+      "args": ["@playwright/mcp@latest"]
     },
 
     "codacy": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@codacy/codacy-mcp@latest"
-      ],
+      "args": ["-y", "@codacy/codacy-mcp@latest"],
       "env": {
         "CODACY_ACCOUNT_TOKEN": "${input:codacy_token}"
       }
@@ -69,10 +62,7 @@
     "google-maps": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-google-maps"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-google-maps"],
       "env": {
         "GOOGLE_MAPS_API_KEY": "${input:maps_api_key}"
       }
@@ -81,10 +71,7 @@
     "sequential-thinking": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     }
   },
 

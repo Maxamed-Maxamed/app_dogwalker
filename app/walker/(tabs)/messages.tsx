@@ -1,5 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text, View } from "react-native";
 
 export default function Messages() {
-  return <View><Text>Messages</Text></View>;
+  return (
+    <View>
+      <Text>Messages</Text>
+    </View>
+  );
 }

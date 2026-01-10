@@ -3,29 +3,40 @@
  * https://docs.expo.dev/guides/color-schemes/
  */
 
-import { getColors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { getColors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 
-type ColorName = 'text' | 'muted' | 'background' | 'tint' | 'icon' | 'tabIconDefault' | 'tabIconSelected' | 'border';
+type ColorName =
+  | "text"
+  | "muted"
+  | "background"
+  | "tint"
+  | "icon"
+  | "tabIconDefault"
+  | "tabIconSelected"
+  | "border";
 
 // Safe color accessor to prevent object injection
-const getColorValue = (colors: ReturnType<typeof getColors>, colorName: ColorName): string => {
+const getColorValue = (
+  colors: ReturnType<typeof getColors>,
+  colorName: ColorName,
+): string => {
   switch (colorName) {
-    case 'text':
+    case "text":
       return colors.text;
-    case 'muted':
+    case "muted":
       return colors.muted;
-    case 'background':
+    case "background":
       return colors.background;
-    case 'tint':
+    case "tint":
       return colors.tint;
-    case 'icon':
+    case "icon":
       return colors.icon;
-    case 'tabIconDefault':
+    case "tabIconDefault":
       return colors.tabIconDefault;
-    case 'tabIconSelected':
+    case "tabIconSelected":
       return colors.tabIconSelected;
-    case 'border':
+    case "border":
       return colors.border;
     default:
       return colors.text; // Safe fallback
@@ -34,12 +45,12 @@ const getColorValue = (colors: ReturnType<typeof getColors>, colorName: ColorNam
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
-  colorName: ColorName
+  colorName: ColorName,
 ) {
-  const theme = useColorScheme() ?? 'light';
-  
+  const theme = useColorScheme() ?? "light";
+
   // Safe access for props using explicit checks
-  const colorFromProps = theme === 'light' ? props.light : props.dark;
+  const colorFromProps = theme === "light" ? props.light : props.dark;
 
   if (colorFromProps) {
     return colorFromProps;
