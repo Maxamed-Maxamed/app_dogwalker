@@ -337,11 +337,13 @@ qlty metrics
 ```
 
 <<<<<<< HEAD
+
 > **Security Note:** The install commands above pipe remote scripts directly to a shell. Before running, review the installer at [qlty.sh](https://qlty.sh). For CI/CD pipelines, prefer pinned release URLs, checksum verification, or package managers for reproducible and auditable installs.
 
-
 =======
->>>>>>> d034f20a1117d04ff7705486b25c8f46ecc2edbb
+
+> > > > > > > d034f20a1117d04ff7705486b25c8f46ecc2edbb
+
 ## 🤖 AI Development Tools
 
 This project includes AI-assisted development configurations:
