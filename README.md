@@ -57,7 +57,6 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 | **Location**         | [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)                    | 19.0.8   |
 | **Language**         | [TypeScript](https://www.typescriptlang.org/)                                           | 5.9.2    |
 
-
 ## 📁 Project Structure
 
 ```bash
@@ -198,7 +197,6 @@ Dogwalker/
    - Press `w` for web browser
    - Scan QR code with [Expo Go](https://expo.dev/go) app
 
-
 ## 🔐 Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
@@ -273,16 +271,16 @@ export default function Button() {
 
 The app includes custom color palettes defined in `tailwind.config.js`:
 
-| Color       | Purpose                              |
-| ----------- | ------------------------------------ |
-| `primary`   | Blue tones for primary actions       |
-| `secondary` | Green tones for success states       |
-| `accent`    | Purple tones for highlights          |
-| `text`      | Theme-aware text colors              |
-| `background`| Theme-aware background colors        |
-| `tint`      | Theme-aware accent colors            |
-| `muted`     | Subdued text and elements            |
-| `border`    | Theme-aware border colors            |
+| Color        | Purpose                        |
+| ------------ | ------------------------------ |
+| `primary`    | Blue tones for primary actions |
+| `secondary`  | Green tones for success states |
+| `accent`     | Purple tones for highlights    |
+| `text`       | Theme-aware text colors        |
+| `background` | Theme-aware background colors  |
+| `tint`       | Theme-aware accent colors      |
+| `muted`      | Subdued text and elements      |
+| `border`     | Theme-aware border colors      |
 
 ### Role-Specific Themes
 
@@ -338,9 +336,12 @@ qlty check --all --filter=trivy
 qlty metrics
 ```
 
+<<<<<<< HEAD
 > **Security Note:** The install commands above pipe remote scripts directly to a shell. Before running, review the installer at [qlty.sh](https://qlty.sh). For CI/CD pipelines, prefer pinned release URLs, checksum verification, or package managers for reproducible and auditable installs.
 
 
+=======
+>>>>>>> d034f20a1117d04ff7705486b25c8f46ecc2edbb
 ## 🤖 AI Development Tools
 
 This project includes AI-assisted development configurations:
@@ -372,42 +373,47 @@ VS Code MCP configuration in `.vscode/mcp.json` for enhanced AI tooling integrat
 
 ## 📄 Scripts
 
-| Command              | Description                        |
-| -------------------- | ---------------------------------- |
-| `pnpm start`         | Start Expo development server      |
-| `pnpm android`       | Run on Android emulator            |
-| `pnpm ios`           | Run on iOS simulator               |
-| `pnpm web`           | Run in web browser                 |
-| `pnpm lint`          | Run ESLint                         |
-| `pnpm build:css`     | Build Tailwind CSS                 |
-| `pnpm reset-project` | Reset to fresh project state       |
+| Command              | Description                   |
+| -------------------- | ----------------------------- |
+| `pnpm start`         | Start Expo development server |
+| `pnpm android`       | Run on Android emulator       |
+| `pnpm ios`           | Run on iOS simulator          |
+| `pnpm web`           | Run in web browser            |
+| `pnpm lint`          | Run ESLint                    |
+| `pnpm build:css`     | Build Tailwind CSS            |
+| `pnpm reset-project` | Reset to fresh project state  |
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
 **Metro bundler cache issues:**
+
 ```bash
 npx expo start --clear
 ```
 
 **NativeWind styles not applying:**
+
 ```bash
 pnpm build:css
 npx expo start --clear
 ```
 
 **TypeScript errors after package updates:**
+
 ```bash
 rm -rf node_modules
 pnpm install
 ```
 
 **Expo Go not connecting:**
+
 - Ensure your device and computer are on the same network
 - Try using tunnel mode: `npx expo start --tunnel`
 
 **Android emulator not starting:**
+
 ```bash
 # Check available emulators
 emulator -list-avds
