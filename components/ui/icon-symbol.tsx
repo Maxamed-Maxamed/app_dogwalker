@@ -1,30 +1,24 @@
 // Fallback for using MaterialIcons on Android and web.
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { SymbolViewProps, SymbolWeight } from "expo-symbols";
+import { SymbolWeight } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type IconMapping = Record<
-  SymbolViewProps["name"],
-  ComponentProps<typeof MaterialIcons>["name"]
->;
-type IconSymbolName = keyof typeof MAPPING;
-
 /**
- * Add your SF Symbols to Material Icons mappings here.
+ * Supported icon names (SF Symbols format).
+ * Add your SF Symbols to Material Icons mappings in getIconName().
  * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
  * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
  */
-const MAPPING = {
-  "house.fill": "home",
-  "paperplane.fill": "send",
-  "chevron.left.forwardslash.chevron.right": "code",
-  "chevron.right": "chevron-right",
-  "person.fill": "person",
-  "pawprint.fill": "pets",
-  "bubble.left.fill": "chat-bubble",
-} as IconMapping;
+type IconSymbolName =
+  | "house.fill"
+  | "paperplane.fill"
+  | "chevron.left.forwardslash.chevron.right"
+  | "chevron.right"
+  | "person.fill"
+  | "pawprint.fill"
+  | "bubble.left.fill";
 
 // Safe icon name accessor to prevent object injection
 const getIconName = (

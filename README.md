@@ -18,7 +18,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 - [Development Workflow](#development-workflow)
 - [Styling with NativeWind](#styling-with-nativewind)
 - [Code Quality](#code-quality)
-- [AI Development Tools](#aidevelopment-tools)
+- [AI Development Tools](#ai-development-tools)
 - [Scripts](#scripts)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -336,13 +336,7 @@ qlty check --all --filter=trivy
 qlty metrics
 ```
 
-<<<<<<< HEAD
-
 > **Security Note:** The install commands above pipe remote scripts directly to a shell. Before running, review the installer at [qlty.sh](https://qlty.sh). For CI/CD pipelines, prefer pinned release URLs, checksum verification, or package managers for reproducible and auditable installs.
-
-=======
-
-> > > > > > > d034f20a1117d04ff7705486b25c8f46ecc2edbb
 
 ## 🤖 AI Development Tools
 

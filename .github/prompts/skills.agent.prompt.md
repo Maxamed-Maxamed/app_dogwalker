@@ -44,54 +44,93 @@ structure:
 - .gitignore: Git ignore file
 
 skills:
-frontend_development: - Building React Native components - TypeScript type definitions - Expo SDK integration - React Navigation setup - Mobile UI/UX design patterns and principles - Best practices for mobile development - Responsive layouts for mobile - Code quality with ESLint and Prettier - Testing with Jest - Code analysis with Codacy - Git workflow - Pull requests for code review - Merge to main after approval - Continuous integration with GitHub Actions - Version control with Git - Documentation with Markdown - UX design principles for mobile apps - User research and wireframing skills - Prototyping tools experience (Figma, Sketch, Adobe XD) - Creating app designs and user flows - User personas and journey mapping - Understanding target audience and improving user experience
+  frontend_development:
+    - Building React Native components
+    - TypeScript type definitions
+    - Expo SDK integration
+    - React Navigation setup
+    - Mobile UI/UX design patterns and principles
+    - Best practices for mobile development
+    - Responsive layouts for mobile
+    - Code quality with ESLint and Prettier
+    - Testing with Jest
+    - Code analysis with Codacy
+    - Git workflow
+    - Pull requests for code review
+    - Merge to main after approval
+    - Continuous integration with GitHub Actions
+    - Version control with Git
+    - Documentation with Markdown
 
-state_management: - React hooks (useState, useEffect, useContext) - Custom hooks creation - Context API - Zustand (if needed)
+  ux_design:
+    - Mobile app design principles
+    - UX design principles for mobile apps
+    - User research and wireframing skills
+    - Prototyping tools experience (Figma, Sketch, Adobe XD)
+    - Creating app designs and user flows
+    - User personas and journey mapping
+    - Understanding target audience and improving user experience
 
-routing: - React Navigation setup - Stack navigation - Tab navigation - Drawer navigation - Deep linking - Nested navigation
+  state_management:
+    - React hooks (useState, useEffect, useContext)
+    - Custom hooks creation
+    - Context API
+    - Zustand (if needed)
 
-styling: - StyleSheet API - Flexbox layouts - Platform-specific styles - Theme management - Loading states
+  routing:
+    - React Navigation setup
+    - Stack navigation
+    - Tab navigation
+    - Drawer navigation
+    - Deep linking
+    - Nested navigation
 
-testing: - Jest unit tests - React Native Testing Library - E2E testing with Detox (if needed) - Mocking API calls - Snapshot testing
+  styling:
+    - StyleSheet API
+    - Flexbox layouts
+    - Platform-specific styles
+    - Theme management
+    - Loading states
+
+  testing:
+    - Jest unit tests
+    - React Native Testing Library
+    - E2E testing with Detox (if needed)
+    - Mocking API calls
+    - Snapshot testing
 
 current_branch: "feature-setup-front-end-ui-and-routing"
 
 git_workflow:
-
-- Feature branches for new work
-- Pull requests for code review
-- Merge to main after approval
+  - Feature branches for new work
+  - Pull requests for code review
+  - Merge to main after approval
 
 coding_standards:
-
-- Use TypeScript for type safety
-- pnpm run typecheck to check types
-- Follow React Native best practices
-- Use functional components with hooks
-- Keep components small and reusable
-- Proper error handling
-- Clean code with meaningful names
-- Consistent formatting with Prettier
-- Lint code with ESLint before commits
+  - Use TypeScript for type safety
+  - pnpm run typecheck to check types
+  - Follow React Native best practices
+  - Use functional components with hooks
+  - Keep components small and reusable
+  - Proper error handling
+  - Clean code with meaningful names
+  - Consistent formatting with Prettier
+  - Lint code with ESLint before commits
 
 next_tasks:
-
-- Set up React Navigation
-- Create main screen structure
-- Design UI component library
-- Implement routing between screens
-- Set up authentication flow (if needed)
-- Create reusable UI components
+  - Set up React Navigation
+  - Create main screen structure
+  - Design UI component library
+  - Implement routing between screens
+  - Set up authentication flow (if needed)
+  - Create reusable UI components
 
 notes:
-
-- Using pnpm as package manager
-- Expo managed workflow
-- Target iOS and Android platforms
-- Integrate Codacy for code analysis and quality checks
-- MCP Server integration for Codacy tools
-- Ensure coding standards compliance with Codacy analysis
+  - Using pnpm as package manager
+  - Expo managed workflow
+  - Target iOS and Android platforms
+  - Integrate Codacy for code analysis and quality checks
+  - MCP Server integration for Codacy tools
+  - Ensure coding standards compliance with Codacy analysis
 
 ---
-
-First, familiarize yourself with the Dog Walker app project structure and tech stack. Focus on frontend development using React Native and Expo with TypeScript. Your primary skills should include building React Native components, setting up React Navigation, and managing state with React hooks and Context API.

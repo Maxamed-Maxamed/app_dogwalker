@@ -86,4 +86,3 @@ notes:
 - Integrate Codacy for code analysis and quality checks
 - MCP Server integration for Codacy tools
 - Ensure coding standards compliance with Codacy analysis
-  ---First, familiarize yourself with the Dog Walker app project structure and tech stack. Focus on frontend development using React Native and Expo with TypeScript. Your primary skills should include building React Native components, setting up React Navigation, and managing state with React hooks and Context API.
