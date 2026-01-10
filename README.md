@@ -2,28 +2,28 @@
 
 A dual-role mobile application for iOS and Android that connects **Dog Owners** with trusted **Dog Walkers**. Find, book, and track dog walking services in real-time.
 
-![Expo](https://img.shields.io/badge/Expo-54.0-000020?style=flat-square&logo=expo)
+![Expo](https://img.shields.io/badge/Expo-54.0.31-000020?style=flat-square&logo=expo)
 ![React Native](https://img.shields.io/badge/React%20Native-0.81.5-61DAFB?style=flat-square&logo=react)
 ![NativeWind](https://img.shields.io/badge/NativeWind-4.2.1-06B6D4?style=flat-square&logo=tailwindcss)
 ![Supabase](https://img.shields.io/badge/Supabase-Auth%20%26%20DB-3FCF8E?style=flat-square&logo=supabase)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=flat-square&logo=typescript)
 
 ## 📑 Table of Contents
 
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Environment Variables](#-environment-variables)
-- [Development Workflow](#-development-workflow)
-- [Styling with NativeWind](#-styling-with-nativewind)
-- [Code Quality](#-code-quality)
-- [AI Development Tools](#-ai-development-tools)
-- [Scripts](#-scripts)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-- [Security](#-security)
-- [License](#-license)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Development Workflow](#development-workflow)
+- [Styling with NativeWind](#styling-with-nativewind)
+- [Code Quality](#code-quality)
+- [AI Development Tools](#aidevelopment-tools)
+- [Scripts](#scripts)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Security](#security)
+- [License](#license)
 
 ## ✨ Features
 
@@ -42,7 +42,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 - 💰 **Earnings Dashboard** - Track earnings and payouts
 - 🗺️ **Navigation** - Get directions to pickup locations
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category             | Technology                                                                              | Version  |
 | -------------------- | --------------------------------------------------------------------------------------- | -------- |
@@ -247,9 +247,11 @@ qlty fmt --all
 ### Building CSS
 
 ```bash
-# Build Tailwind CSS (runs automatically on start)
+# Build Tailwind CSS manually (also runs automatically via prestart hook when running pnpm start)
 pnpm build:css
 ```
+
+> **Note:** The `prestart` script in `package.json` automatically runs `build:css` before `pnpm start`. Run manually only if you need to rebuild CSS without restarting the dev server.
 
 ## 🎨 Styling with NativeWind
 
@@ -335,6 +337,8 @@ qlty check --all --filter=trivy
 # Show code metrics
 qlty metrics
 ```
+
+> **Security Note:** The install commands above pipe remote scripts directly to a shell. Before running, review the installer at [qlty.sh](https://qlty.sh). For CI/CD pipelines, prefer pinned release URLs, checksum verification, or package managers for reproducible and auditable installs.
 
 
 ## 🤖 AI Development Tools
@@ -445,7 +449,7 @@ This project uses automated security scanning with:
 - **Trivy** - Container and dependency vulnerability scanning
 - **TruffleHog** - Secret detection in code and git history
 - **Gitleaks** - Credential and API key scanning
-- **OSV-Scanner** - Open Source Vulnerability scanning
+- **OSV-Scanner** - Open-Source Vulnerability scanning
 
 ## 📝 License
 

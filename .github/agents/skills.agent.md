@@ -19,7 +19,7 @@ tech_stack:
 - Styled Components or StyleSheet API (for styling)
 - ESLint and Prettier (for code quality)
 - codacy (for code analysis) and MCP Server integration
-- mcp tools server are in mcp.json including such as supabase, codacy, etc so on.
+- mcp tools server are in mcp.json including such as supabase, codacy, etc. and so on.
 
 structure:
 

@@ -26,6 +26,30 @@ const MAPPING = {
   "bubble.left.fill": "chat-bubble",
 } as IconMapping;
 
+// Safe icon name accessor to prevent object injection
+const getIconName = (
+  name: IconSymbolName,
+): ComponentProps<typeof MaterialIcons>["name"] => {
+  switch (name) {
+    case "house.fill":
+      return "home";
+    case "paperplane.fill":
+      return "send";
+    case "chevron.left.forwardslash.chevron.right":
+      return "code";
+    case "chevron.right":
+      return "chevron-right";
+    case "person.fill":
+      return "person";
+    case "pawprint.fill":
+      return "pets";
+    case "bubble.left.fill":
+      return "chat-bubble";
+    default:
+      return "help"; // Safe fallback
+  }
+};
+
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
  * This ensures a consistent look across platforms, and optimal resource usage.
@@ -47,7 +71,7 @@ export function IconSymbol({
     <MaterialIcons
       color={color}
       size={size}
-      name={MAPPING[name]}
+      name={getIconName(name)}
       style={style}
     />
   );
