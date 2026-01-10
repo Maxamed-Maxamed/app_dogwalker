@@ -177,7 +177,7 @@ Dogwalker/
    cp .env.example .env.local
    ```
 
-   See [Environment Variables](#-environment-variables) for required values.
+   See [Environment Variables](#environment-variables) for required values.
 
 4. **Build CSS** (first time only)
 
