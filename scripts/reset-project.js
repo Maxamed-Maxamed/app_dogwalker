@@ -16,6 +16,28 @@ const exampleDir = "app-example";
 const newAppDir = "app";
 const exampleDirPath = path.join(root, exampleDir);
 
+/**
+ * Safely resolves and validates a path to prevent path traversal attacks.
+ * Ensures the resolved path stays within the base directory.
+ * @param {string} basePath - The base directory path
+ * @param {string} targetPath - The target path to validate
+ * @returns {string|null} - The normalized path if valid, null if path traversal detected
+ */
+const safeResolvePath = (basePath, targetPath) => {
+  const normalizedBase = path.normalize(basePath);
+  const fullPath = path.normalize(path.join(basePath, targetPath));
+
+  // Ensure the resolved path starts with the base path to prevent traversal
+  if (!fullPath.startsWith(normalizedBase)) {
+    console.error(
+      `❌ Security error: Path traversal detected for "${targetPath}"`,
+    );
+    return null;
+  }
+
+  return fullPath;
+};
+
 const indexContent = `import { Text, View } from "react-native";
 
 export default function Index() {
@@ -55,10 +77,22 @@ const moveDirectories = async (userInput) => {
 
     // Move old directories to new app-example directory or delete them
     for (const dir of oldDirs) {
-      const oldDirPath = path.join(root, dir);
+      // Use safe path resolution to prevent path traversal
+      const oldDirPath = safeResolvePath(root, dir);
+      if (!oldDirPath) {
+        console.log(`⚠️ Skipping "${dir}" due to invalid path.`);
+        continue;
+      }
+
       if (fs.existsSync(oldDirPath)) {
         if (userInput === "y") {
-          const newDirPath = path.join(root, exampleDir, dir);
+          const newDirPath = safeResolvePath(root, path.join(exampleDir, dir));
+          if (!newDirPath) {
+            console.log(
+              `⚠️ Skipping move for "${dir}" due to invalid target path.`,
+            );
+            continue;
+          }
           await fs.promises.rename(oldDirPath, newDirPath);
           console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
         } else {
@@ -70,18 +104,27 @@ const moveDirectories = async (userInput) => {
       }
     }
 
-    // Create new /app directory
-    const newAppDirPath = path.join(root, newAppDir);
+    // Create new /app directory using safe path resolution
+    const newAppDirPath = safeResolvePath(root, newAppDir);
+    if (!newAppDirPath) {
+      throw new Error("Invalid app directory path");
+    }
     await fs.promises.mkdir(newAppDirPath, { recursive: true });
     console.log("\n📁 New /app directory created.");
 
-    // Create index.tsx
-    const indexPath = path.join(newAppDirPath, "index.tsx");
+    // Create index.tsx using safe path resolution
+    const indexPath = safeResolvePath(newAppDirPath, "index.tsx");
+    if (!indexPath) {
+      throw new Error("Invalid index.tsx path");
+    }
     await fs.promises.writeFile(indexPath, indexContent);
     console.log("📄 app/index.tsx created.");
 
-    // Create _layout.tsx
-    const layoutPath = path.join(newAppDirPath, "_layout.tsx");
+    // Create _layout.tsx using safe path resolution
+    const layoutPath = safeResolvePath(newAppDirPath, "_layout.tsx");
+    if (!layoutPath) {
+      throw new Error("Invalid _layout.tsx path");
+    }
     await fs.promises.writeFile(layoutPath, layoutContent);
     console.log("📄 app/_layout.tsx created.");
 

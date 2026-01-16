@@ -40,7 +40,7 @@ const getIconName = (
     case "bubble.left.fill":
       return "chat-bubble";
     default:
-      return "help"; // Safe fallback
+      return "help";
   }
 };
 
