@@ -51,3 +51,4 @@ app-example
 .mcp.json
 .codacy/
 .vscode/settings.json
+.vscode/mcp.json
