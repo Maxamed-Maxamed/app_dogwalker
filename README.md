@@ -4,9 +4,12 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 
 ![Expo](https://img.shields.io/badge/Expo-54.0.31-000020?style=flat-square&logo=expo)
 ![React Native](https://img.shields.io/badge/React%20Native-0.81.5-61DAFB?style=flat-square&logo=react)
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=flat-square&logo=react)
 ![NativeWind](https://img.shields.io/badge/NativeWind-4.2.1-06B6D4?style=flat-square&logo=tailwindcss)
-![Supabase](https://img.shields.io/badge/Supabase-Auth%20%26%20DB-3FCF8E?style=flat-square&logo=supabase)
+![Supabase](https://img.shields.io/badge/Supabase-2.89.0-3FCF8E?style=flat-square&logo=supabase)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=flat-square&logo=typescript)
+![Zustand](https://img.shields.io/badge/Zustand-5.0.9-764ABC?style=flat-square)
+![MCP](https://img.shields.io/badge/MCP_Servers-12_Configured-blueviolet?style=flat-square)
 
 ## Table of Contents
 
@@ -19,6 +22,7 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 - [Styling with NativeWind](#styling-with-nativewind)
 - [Code Quality](#code-quality)
 - [AI Development Tools](#ai-development-tools)
+- [MCP Server Integration](#mcp-server-integration)
 - [Scripts](#scripts)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -44,18 +48,19 @@ A dual-role mobile application for iOS and Android that connects **Dog Owners** 
 
 ## Tech Stack
 
-| Category             | Technology                                                                              | Version  |
-| -------------------- | --------------------------------------------------------------------------------------- | -------- |
-| **Framework**        | [Expo](https://expo.dev) (React Native)                                                 | 54.0.31  |
-| **Runtime**          | [React Native](https://reactnative.dev/)                                                | 0.81.5   |
-| **Routing**          | [Expo Router](https://docs.expo.dev/router/introduction/)                               | 6.0.21   |
-| **Styling**          | [NativeWind](https://www.nativewind.dev/) (Tailwind CSS)                                | 4.2.1    |
-| **State Management** | [Zustand](https://zustand-demo.pmnd.rs/) + [TanStack Query](https://tanstack.com/query) | 5.x      |
-| **Forms**            | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)               | 7.70 / 4 |
-| **Database/Auth**    | [Supabase](https://supabase.com/)                                                       | 2.89+    |
-| **Maps**             | [Expo Maps](https://docs.expo.dev/versions/latest/sdk/maps/)                            | 0.12.10  |
-| **Location**         | [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)                    | 19.0.8   |
-| **Language**         | [TypeScript](https://www.typescriptlang.org/)                                           | 5.9.2    |
+| Category             | Technology                                                                              | Version         |
+| -------------------- | --------------------------------------------------------------------------------------- | --------------- |
+| **Framework**        | [Expo](https://expo.dev) (React Native)                                                 | 54.0.31         |
+| **Runtime**          | [React Native](https://reactnative.dev/)                                                | 0.81.5          |
+| **Routing**          | [Expo Router](https://docs.expo.dev/router/introduction/)                               | 6.0.21          |
+| **Styling**          | [NativeWind](https://www.nativewind.dev/) (Tailwind CSS)                                | 4.2.1           |
+| **UI Library**       | [React](https://react.dev/)                                                             | 19.1.0          |
+| **State Management** | [Zustand](https://zustand-demo.pmnd.rs/) + [TanStack Query](https://tanstack.com/query) | 5.0.9 / 5.90.16 |
+| **Forms**            | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)               | 7.70.0 / 4.3.5  |
+| **Database/Auth**    | [Supabase](https://supabase.com/)                                                       | 2.89.0          |
+| **Maps**             | [Expo Maps](https://docs.expo.dev/versions/latest/sdk/maps/)                            | 0.12.10         |
+| **Location**         | [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)                    | 19.0.8          |
+| **Language**         | [TypeScript](https://www.typescriptlang.org/)                                           | 5.9.2           |
 
 ## Project Structure
 
@@ -77,10 +82,7 @@ Dogwalker/
 │   └── spec/                   # Project specifications
 │       ├── CodeArchitecture.prompt.md
 │       └── spec-sheet.prompt.md
-├── .qlty/                      # Qlty CLI configuration
-│   ├── qlty.toml               # Main configuration
-│   └── configs/                # Plugin configs
-├── .vscode/                    # VS Code settings
+├── .vscode/                    # VS Code configuration
 │   ├── extensions.json         # Recommended extensions
 │   ├── mcp.json                # MCP server configuration
 │   └── settings.json           # Workspace settings
@@ -365,19 +367,92 @@ Located in `.github/spec/`:
 
 ### MCP Server Configuration
 
-VS Code MCP configuration in `.vscode/mcp.json` for enhanced AI tooling integration.
+VS Code MCP configuration in `.vscode/mcp.json` for enhanced AI tooling integration. See [MCP Server Integration](#mcp-server-integration) for detailed setup.
+
+## MCP Server Integration
+
+This project includes **12 MCP (Model Context Protocol) servers** for enhanced AI-assisted development in VS Code.
+
+### Configured MCP Servers
+
+| Server                  | Category         | Purpose                                 | Required Credential     |
+| ----------------------- | ---------------- | --------------------------------------- | ----------------------- |
+| **Sentry**              | Error Monitoring | Track production errors and performance | Sentry Auth Token       |
+| **GitHub**              | Version Control  | PR management, code search, issues      | `github_token`          |
+| **Context7**            | Documentation    | Fetch up-to-date library docs           | `context7_api_key`      |
+| **Serena**              | Code Assistant   | Semantic code analysis and editing      | None (local)            |
+| **Playwright**          | Testing          | Browser automation and E2E testing      | None (local)            |
+| **Codacy**              | Code Quality     | Automated code review and analysis      | `codacy_token`          |
+| **Supabase**            | Backend          | Database operations, branch management  | `supabase_access_token` |
+| **Google Maps**         | Location         | Geocoding, directions, place search     | `maps_api_key`          |
+| **Figma**               | Design           | Design-to-code integration              | Figma Auth              |
+| **Devin**               | AI Agent         | Autonomous coding assistance            | Devin API Key           |
+| **DeepWiki**            | Documentation    | Repository documentation queries        | None                    |
+| **Sequential Thinking** | Reasoning        | Step-by-step problem solving            | None (local)            |
+
+### Setting Up MCP Servers
+
+1. **Open VS Code Settings**
+   - The MCP configuration is in `.vscode/mcp.json`
+
+2. **Provide API Keys**
+   - When prompted, enter your credentials for each service
+   - Keys are stored securely and not committed to git
+
+3. **Required Credentials**
+
+   ```bash
+   # GitHub Personal Access Token
+   # Create at: https://github.com/settings/tokens
+   github_token=ghp_xxxxxxxxxxxx
+
+   # Codacy Account Token
+   # Create at: https://app.codacy.com/account/apiTokens
+   codacy_token=xxxxxxxx
+
+   # Supabase Access Token
+   # Create at: https://supabase.com/dashboard/account/tokens
+   supabase_access_token=sbp_xxxxxxxxxxxx
+
+   # Google Maps API Key
+   # Create at: https://console.cloud.google.com/apis/credentials
+   maps_api_key=AIzaxxxxxxxxxx
+
+   # Context7 API Key
+   # Must start with 'ctx7sk'
+   context7_api_key=ctx7sk_xxxxxxxxxxxx
+   ```
+
+### MCP Server Status
+
+| Status        | Meaning                                    |
+| ------------- | ------------------------------------------ |
+| ✅ Working    | Server connected and authenticated         |
+| ⚠️ Needs Auth | Server configured but requires credentials |
+| ❌ Disabled   | Server not available                       |
+
+### Using MCP Tools
+
+```bash
+# In VS Code Copilot Chat, reference MCP tools:
+@workspace use codacy to analyze this file
+@workspace check supabase organizations
+@workspace use sequential thinking to plan this feature
+```
 
 ## Scripts
 
-| Command              | Description                   |
-| -------------------- | ----------------------------- |
-| `pnpm start`         | Start Expo development server |
-| `pnpm android`       | Run on Android emulator       |
-| `pnpm ios`           | Run on iOS simulator          |
-| `pnpm web`           | Run in web browser            |
-| `pnpm lint`          | Run ESLint                    |
-| `pnpm build:css`     | Build Tailwind CSS            |
-| `pnpm reset-project` | Reset to fresh project state  |
+| Command              | Description                    |
+| -------------------- | ------------------------------ |
+| `pnpm start`         | Start Expo development server  |
+| `pnpm android`       | Run on Android emulator        |
+| `pnpm ios`           | Run on iOS simulator           |
+| `pnpm web`           | Run in web browser             |
+| `pnpm lint`          | Run ESLint                     |
+| `pnpm format`        | Auto-format code with Prettier |
+| `pnpm format:check`  | Check code formatting          |
+| `pnpm build:css`     | Build Tailwind CSS             |
+| `pnpm reset-project` | Reset to fresh project state   |
 
 ## Troubleshooting
 
@@ -416,6 +491,21 @@ emulator -list-avds
 
 # Start specific emulator
 emulator -avd <avd_name>
+```
+
+**MCP Server not connecting:**
+
+- Verify API keys are correct and have required permissions
+- Check VS Code Output panel → "MCP" for error logs
+- For Context7: Ensure API key starts with `ctx7sk`
+- For Supabase: Verify token has project access
+- Restart VS Code after updating `.vscode/mcp.json`
+
+**Codacy CLI not found:**
+
+```bash
+# The Codacy MCP server auto-installs the CLI
+# If issues persist, check Codacy token permissions
 ```
 
 ## Contributing
@@ -472,6 +562,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Supabase](https://supabase.com/) for the backend infrastructure
 - [Qlty](https://qlty.sh/) for the comprehensive code quality toolkit
 - [Codacy](https://www.codacy.com/) for automated code review
+- [Context7](https://context7.com/) for up-to-date library documentation
+- [Sentry](https://sentry.io/) for error monitoring and performance tracking
+- [Playwright](https://playwright.dev/) for browser automation testing
+- [MCP Protocol](https://modelcontextprotocol.io/) for AI tool integration
 
 ---
 
