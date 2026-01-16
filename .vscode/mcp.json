@@ -72,14 +72,7 @@
       "type": "http",
       "url": "https://mcp.figma.com/mcp"
     },
-
-    "devin": {
-      "type": "http",
-      "url": "https://mcp.devin.ai/sse",
-      "headers": {
-        "Authorization": "Bearer <API_KEY>"
-      }
-    },
+    
     "deepwiki": {
       "type": "http",
       "url": "https://mcp.deepwiki.com/sse"
