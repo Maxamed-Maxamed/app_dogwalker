@@ -6,7 +6,6 @@
     "build:css": "npx tailwindcss -i ./global.css -o ./output.css",
     "prestart": "npm run build:css",
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
