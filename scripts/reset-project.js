@@ -67,75 +67,114 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+/**
+ * Moves a directory to the example directory.
+ * @param {string} oldDirPath - The source directory path
+ * @param {string} dir - The directory name
+ */
+const moveDirectory = async (oldDirPath, dir) => {
+  const newDirPath = safeResolvePath(root, path.join(exampleDir, dir));
+  if (!newDirPath) {
+    console.log(`⚠️ Skipping move for "${dir}" due to invalid target path.`);
+    return;
+  }
+  await fs.promises.rename(oldDirPath, newDirPath);
+  console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
+};
+
+/**
+ * Deletes a directory.
+ * @param {string} oldDirPath - The directory path to delete
+ * @param {string} dir - The directory name
+ */
+const deleteDirectory = async (oldDirPath, dir) => {
+  await fs.promises.rm(oldDirPath, { recursive: true, force: true });
+  console.log(`❌ /${dir} deleted.`);
+};
+
+/**
+ * Processes a single directory - either moves or deletes it.
+ * @param {string} dir - The directory name
+ * @param {boolean} shouldMove - Whether to move (true) or delete (false)
+ */
+const processDirectory = async (dir, shouldMove) => {
+  const oldDirPath = safeResolvePath(root, dir);
+  if (!oldDirPath) {
+    console.log(`⚠️ Skipping "${dir}" due to invalid path.`);
+    return;
+  }
+
+  if (!fs.existsSync(oldDirPath)) {
+    console.log(`➡️ /${dir} does not exist, skipping.`);
+    return;
+  }
+
+  if (shouldMove) {
+    await moveDirectory(oldDirPath, dir);
+  } else {
+    await deleteDirectory(oldDirPath, dir);
+  }
+};
+
+/**
+ * Creates the new app directory with starter files.
+ */
+const createNewAppDirectory = async () => {
+  const newAppDirPath = safeResolvePath(root, newAppDir);
+  if (!newAppDirPath) {
+    throw new Error("Invalid app directory path");
+  }
+  await fs.promises.mkdir(newAppDirPath, { recursive: true });
+  console.log("\n📁 New /app directory created.");
+
+  const indexPath = safeResolvePath(newAppDirPath, "index.tsx");
+  if (!indexPath) {
+    throw new Error("Invalid index.tsx path");
+  }
+  await fs.promises.writeFile(indexPath, indexContent);
+  console.log("📄 app/index.tsx created.");
+
+  const layoutPath = safeResolvePath(newAppDirPath, "_layout.tsx");
+  if (!layoutPath) {
+    throw new Error("Invalid _layout.tsx path");
+  }
+  await fs.promises.writeFile(layoutPath, layoutContent);
+  console.log("📄 app/_layout.tsx created.");
+};
+
+/**
+ * Prints completion message with next steps.
+ * @param {boolean} movedFiles - Whether files were moved to example dir
+ */
+const printCompletionMessage = (movedFiles) => {
+  console.log("\n✅ Project reset complete. Next steps:");
+  const baseMessage =
+    "1. Run `npx expo start` to start a development server.\n2. Edit app/index.tsx to edit the main screen.";
+  const moveMessage = movedFiles
+    ? `\n3. Delete the /${exampleDir} directory when you're done referencing it.`
+    : "";
+  console.log(baseMessage + moveMessage);
+};
+
+/**
+ * Main function to move or delete directories and create new app structure.
+ * @param {string} userInput - User's choice ('y' to move, 'n' to delete)
+ */
 const moveDirectories = async (userInput) => {
   try {
-    if (userInput === "y") {
-      // Create the app-example directory
+    const shouldMove = userInput === "y";
+
+    if (shouldMove) {
       await fs.promises.mkdir(exampleDirPath, { recursive: true });
       console.log(`📁 /${exampleDir} directory created.`);
     }
 
-    // Move old directories to new app-example directory or delete them
     for (const dir of oldDirs) {
-      // Use safe path resolution to prevent path traversal
-      const oldDirPath = safeResolvePath(root, dir);
-      if (!oldDirPath) {
-        console.log(`⚠️ Skipping "${dir}" due to invalid path.`);
-        continue;
-      }
-
-      if (fs.existsSync(oldDirPath)) {
-        if (userInput === "y") {
-          const newDirPath = safeResolvePath(root, path.join(exampleDir, dir));
-          if (!newDirPath) {
-            console.log(
-              `⚠️ Skipping move for "${dir}" due to invalid target path.`,
-            );
-            continue;
-          }
-          await fs.promises.rename(oldDirPath, newDirPath);
-          console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
-        } else {
-          await fs.promises.rm(oldDirPath, { recursive: true, force: true });
-          console.log(`❌ /${dir} deleted.`);
-        }
-      } else {
-        console.log(`➡️ /${dir} does not exist, skipping.`);
-      }
+      await processDirectory(dir, shouldMove);
     }
 
-    // Create new /app directory using safe path resolution
-    const newAppDirPath = safeResolvePath(root, newAppDir);
-    if (!newAppDirPath) {
-      throw new Error("Invalid app directory path");
-    }
-    await fs.promises.mkdir(newAppDirPath, { recursive: true });
-    console.log("\n📁 New /app directory created.");
-
-    // Create index.tsx using safe path resolution
-    const indexPath = safeResolvePath(newAppDirPath, "index.tsx");
-    if (!indexPath) {
-      throw new Error("Invalid index.tsx path");
-    }
-    await fs.promises.writeFile(indexPath, indexContent);
-    console.log("📄 app/index.tsx created.");
-
-    // Create _layout.tsx using safe path resolution
-    const layoutPath = safeResolvePath(newAppDirPath, "_layout.tsx");
-    if (!layoutPath) {
-      throw new Error("Invalid _layout.tsx path");
-    }
-    await fs.promises.writeFile(layoutPath, layoutContent);
-    console.log("📄 app/_layout.tsx created.");
-
-    console.log("\n✅ Project reset complete. Next steps:");
-    console.log(
-      `1. Run \`npx expo start\` to start a development server.\n2. Edit app/index.tsx to edit the main screen.${
-        userInput === "y"
-          ? `\n3. Delete the /${exampleDir} directory when you're done referencing it.`
-          : ""
-      }`,
-    );
+    await createNewAppDirectory();
+    printCompletionMessage(shouldMove);
   } catch (error) {
     console.error(`❌ Error during script execution: ${error.message}`);
   }
