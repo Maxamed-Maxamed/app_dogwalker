@@ -6,7 +6,7 @@ import { Text, View } from "react-native";
 
 export default function NotFoundScreen() {
   const colorScheme = useColorScheme();
-  // Use safe helper function to prevent object injection
+  // Use safe helper function to prevent object injection - colorScheme is guaranteed to be 'light' | 'dark'
   const colors = getColors(colorScheme);
   return (
     <>

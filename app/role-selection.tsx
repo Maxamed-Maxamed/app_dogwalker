@@ -1,118 +1,131 @@
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Image } from "expo-image";
-import { Href, useRouter } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, View } from "react-native";
+import { RoleCard } from "@/components/RoleCard";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
+import { useState } from "react";
+import { ActivityIndicator, Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function RoleSelection() {
+// Fonts are loaded in _layout.tsx using expo-font's useFonts hook
+// Available fonts: 'Poppins-Regular', 'Poppins-Bold', 'Poppins-SemiBold', 'Poppins-Medium', 'Poppins-Light'
+
+export default function RoleSelectionScreen() {
   const router = useRouter();
+  const colorScheme = useColorScheme();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSelectOwner = () => {
-    // Navigate to owner flow
-    router.push("/owner/(onboarding)/welcome" as unknown as Href);
-  };
+  const handleRoleSelection = (role: "owner" | "walker") => {
+    setIsLoading(true);
 
-  const handleSelectWalker = () => {
-    // Navigate to walker flow
-    router.push("/walker/(onboarding)/welcome" as unknown as Href);
+    console.log(`✅ Role selected: ${role}`);
+
+    // TODO: Add AsyncStorage.setItem('userRole', role) here later for persistence
+
+    // Navigate to appropriate splash screen
+    if (role === "owner") {
+      router.replace("/owner/splash");
+    } else {
+      router.replace("/walker/splash");
+    }
   };
 
   return (
-    <View className="flex-1 bg-primary-600">
-      <StatusBar style="light" />
-      <SafeAreaView className="flex-1">
-        <View className="flex-1 items-center px-6 py-10 justify-between">
-          <View className="w-full items-center">
-            {/* Logo Section */}
-            <View className="items-center mt-4 mb-10">
-              <Image
-                source={require("@/assets/images/dog-logo.png")}
-                style={{ width: 100, height: 100 }}
-                contentFit="contain"
-              />
-            </View>
+    <LinearGradient
+      colors={
+        colorScheme === "dark"
+          ? ["#1e3a8a", "#1e40af", "#2563eb"]
+          : ["#4F7CE8", "#5B8DEF", "#6FA3F5"]
+      }
+      className="flex-1"
+      style={styles.container}
+    >
+      <SafeAreaView className="flex-1 px-6">
+        {/* Logo */}
+        <View className="items-center mt-8 mb-12">
+          <Image
+            source={require("@/assets/images/dog-logo.png")}
+            className="w-24 h-24 rounded-2xl"
+            resizeMode="contain"
+          />
+        </View>
 
-            {/* Title Section */}
-            <View className="items-center mb-10">
-              <Text className="text-white text-3xl font-bold mb-3">
-                Choose Your Role
-              </Text>
-              <Text className="text-white/90 text-[17px] text-center px-4">
-                Select how you want to use DogWalker
-              </Text>
-            </View>
+        {/* Header */}
+        <View className="items-center mb-12 px-4">
+          <Text
+            className="text-[34px] text-white text-center mb-3"
+            style={styles.title}
+          >
+            Choose Your Role
+          </Text>
+          <Text
+            className="text-[16px] text-white text-center opacity-95"
+            style={styles.subtitle}
+          >
+            Select how you want to use DogWalker
+          </Text>
+        </View>
 
-            {/* Cards Section */}
-            <View className="w-full gap-y-6">
-              {/* Dog Owner Card */}
-              <Pressable
-                onPress={handleSelectOwner}
-                style={({ pressed }) => [
-                  { transform: [{ scale: pressed ? 0.98 : 1 }] },
-                ]}
-                className="bg-white rounded-[32px] p-6 shadow-sm"
-              >
-                <View className="flex-row items-center mb-4">
-                  <View className="bg-blue-50/80 p-4 rounded-2xl mr-4">
-                    <IconSymbol name="person.fill" size={30} color="#2563eb" />
-                  </View>
-                  <View>
-                    <Text className="text-[20px] font-bold text-gray-900">
-                      Dog Owner
-                    </Text>
-                    <Text className="text-gray-500 font-medium">
-                      Find & book dog walkers
-                    </Text>
-                  </View>
-                </View>
-                <Text className="text-gray-600 leading-[22px] text-[15px]">
-                  Book trusted dog walkers, track walks in real-time, and keep
-                  your furry friend happy and healthy.
-                </Text>
-              </Pressable>
+        {/* Role Cards */}
+        <View className="gap-5 px-2 flex-1">
+          {/* Dog Owner Card */}
+          <RoleCard
+            title="Dog Owner"
+            subtitle="Find & book dog walkers"
+            description="Book trusted dog walkers, track walks in real-time, and keep your furry friend happy and healthy."
+            iconName="person.fill"
+            iconColor="#5B8DEF"
+            iconBackgroundColor="#D6E4FF"
+            onPress={() => handleRoleSelection("owner")}
+            disabled={isLoading}
+          />
 
-              {/* Dog Walker Card */}
-              <Pressable
-                onPress={handleSelectWalker}
-                style={({ pressed }) => [
-                  { transform: [{ scale: pressed ? 0.98 : 1 }] },
-                ]}
-                className="bg-white rounded-[32px] p-6 shadow-sm"
-              >
-                <View className="flex-row items-center mb-4">
-                  <View className="bg-green-50/80 p-4 rounded-2xl mr-4">
-                    <IconSymbol
-                      name="pawprint.fill"
-                      size={30}
-                      color="#16a34a"
-                    />
-                  </View>
-                  <View>
-                    <Text className="text-[20px] font-bold text-gray-900">
-                      Dog Walker
-                    </Text>
-                    <Text className="text-gray-500 font-medium">
-                      Earn money walking dogs
-                    </Text>
-                  </View>
-                </View>
-                <Text className="text-gray-600 leading-[22px] text-[15px]">
-                  Set your schedule, walk adorable dogs, earn money, and build a
-                  reputation as a trusted professional.
-                </Text>
-              </Pressable>
-            </View>
-          </View>
+          {/* Dog Walker Card */}
+          <RoleCard
+            title="Dog Walker"
+            subtitle="Earn money walking dogs"
+            description="Set your schedule, walk adorable dogs, earn money, and build a reputation as a trusted walker."
+            iconName="pawprint.fill"
+            iconColor="#4CAF50"
+            iconBackgroundColor="#C8E6C9"
+            onPress={() => handleRoleSelection("walker")}
+            disabled={isLoading}
+          />
 
-          {/* Footer Section */}
-          <View className="pb-4">
-            <Text className="text-white/70 text-sm font-medium">
-              You can switch roles anytime in settings
-            </Text>
-          </View>
+          {/* Bottom Text */}
+          <Text
+            className="text-white text-center text-[13px] opacity-90 mt-auto mb-6"
+            style={styles.footerText}
+          >
+            You can switch roles anytime in settings
+          </Text>
         </View>
       </SafeAreaView>
-    </View>
+
+      {/* Loading Indicator */}
+      {isLoading && (
+        <View className="absolute inset-0 justify-center items-center bg-black/30">
+          <ActivityIndicator size="large" color="#FFFFFF" />
+        </View>
+      )}
+    </LinearGradient>
   );
 }
+
+// Styles for custom fonts
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 0,
+  },
+  title: {
+    fontFamily: "Poppins-Bold",
+    letterSpacing: 0.5,
+  },
+  subtitle: {
+    fontFamily: "Poppins-Regular",
+    letterSpacing: 0.3,
+  },
+  footerText: {
+    fontFamily: "Poppins-Regular",
+    letterSpacing: 0.2,
+  },
+});

@@ -515,10 +515,12 @@ Contributions are welcome! Please read our [Code of Conduct](CODE_OF_CONDUCT.md)
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Run code quality checks:
+
    ```bash
    pnpm lint
    qlty check --all
    ```
+
 4. Commit your changes (`git commit -m 'Add some amazing feature'`)
 5. Push to the branch (`git push origin feature/amazing-feature`)
 6. Open a Pull Request
@@ -569,6 +571,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<p align="center">
-  Made with ❤️ for dogs and their humans
-</p>
+Made with ❤️ for dogs and their humans
