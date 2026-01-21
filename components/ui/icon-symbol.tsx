@@ -18,7 +18,8 @@ type IconSymbolName =
   | "chevron.right"
   | "person.fill"
   | "pawprint.fill"
-  | "bubble.left.fill";
+  | "bubble.left.fill"
+  | "figure.walk";  
 
 // Safe icon name accessor to prevent object injection
 const getIconName = (
@@ -39,6 +40,8 @@ const getIconName = (
       return "pets";
     case "bubble.left.fill":
       return "chat-bubble";
+      case "figure.walk":              // ← Add this
+      return "directions-walk";  
     default:
       return "help";
   }

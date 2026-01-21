@@ -1,8 +1,8 @@
 {
   "servers": {
-    "sentry": {
-      "type": "http",
-      "url": "https://mcp.sentry.dev/mcp"
+    "Sentry": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@latest", "https://mcp.sentry.dev/mcp"]
     },
 
     "github": {
@@ -14,12 +14,8 @@
     },
 
     "context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@upstash/context7-mcp@1.0.25"],
-      "env": {
-        "CONTEXT7_API_KEY": "${input:context7_api_key}"
-      }
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
     },
 
     "serena": {
@@ -68,16 +64,10 @@
       }
     },
 
-    "figma": {
-      "type": "http",
-      "url": "https://mcp.figma.com/mcp"
-    },
-    
     "deepwiki": {
       "type": "http",
       "url": "https://mcp.deepwiki.com/sse"
     },
-
 
     "sequential-thinking": {
       "type": "stdio",
@@ -117,6 +107,12 @@
       "id": "maps_api_key",
       "type": "promptString",
       "description": "Google Maps API Key",
+      "password": true
+    },
+    {
+      "id": "figma_token",
+      "type": "promptString",
+      "description": "Figma Personal Access Token",
       "password": true
     }
   ]
